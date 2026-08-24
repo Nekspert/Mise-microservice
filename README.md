@@ -7,42 +7,73 @@ Python 3.11+, FastAPI, Pydantic v2, SQLAlchemy 2.0 (async), SQLite, Alembic, Uvi
 
 ## Возможности
 
-- Создание брони: POST /bookings
-- Список броней с фильтром по дате и пагинацией: GET /bookings
-- Получение брони по id: GET /bookings/{id}
-- Отмена брони: DELETE /bookings/{id}
+- Создание брони: `POST /bookings`
+- Список броней с фильтром по дате и пагинацией: `GET /bookings`
+- Получение брони по id: `GET /bookings/{id}`
+- Отмена брони: `DELETE /bookings/{id}`
 
-Валидация входных данных, понятные ошибки (422, 404, 409), Swagger на /docs и ReDoc на /redoc.
+Валидация входных данных, понятные ошибки `422`, `404`, `409`, Swagger на /docs и ReDoc на /redoc.
 
-## Запуск локально
+## Клонирование
+
+```bash
+git clone https://github.com/Nekspert/Mise-Microservice.git
+cd Mise-Microservice
+```
+
+## Запуск без Docker
 
 Требуется Python 3.11+ и Poetry.
 
-1. Установить зависимости:
+Установка зависимостей:
 
-   poetry install
+```bash
+poetry install
+```
 
-2. Создать файл окружения:
+Создание файла окружения:
 
-   cp .env.example .env
+```bash
+cp .env.example .env
+```
 
-3. Применить миграции:
+Применение миграций:
 
-   poetry run alembic upgrade head
+```bash
+poetry run alembic upgrade head
+```
 
-4. Запустить сервер:
+Запуск сервера:
 
-   poetry run uvicorn app.main:create_app --factory --reload
+```bash
+poetry run uvicorn app.main:create_app --factory --reload
+```
 
-Сервер доступен на http://0.0.0.0:8000, документация на /docs.
+После запуска:
+
+- API: http://localhost:8000
+- Swagger: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
 
 ## Тесты
 
+```bash
 poetry run pytest
+```
 
 ## Docker
 
+Запуск:
+
+```bash
 docker compose up --build
+```
+
+После запуска:
+
+- API: http://localhost:8000
+- Swagger: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
 
 ## Решения
 
