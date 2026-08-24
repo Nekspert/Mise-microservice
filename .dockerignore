@@ -1,0 +1,8 @@
+*.db
+README.md
+.venv
+.env
+.env.example
+.coverage
+.gitignore
+.idea

@@ -1,0 +1,16 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bookings
+    env_file:
+      - .env
+    restart: unless-stopped
+    ports:
+      - "${RUN_PORT}:8000"
+    volumes:
+      - bookings_sqlitedata:/app/data
+
+volumes:
+  bookings_sqlitedata:
